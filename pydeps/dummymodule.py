@@ -67,7 +67,9 @@ class DummyModule(object):
             #         this will almost certainly not do the right thing...
             cli.verbose(1, "target is a DIRECTORY")
             with open(self.fname, 'w') as fp:
-                for fname in os.listdir(target.dirname):
+                # for fname in os.listdir(target.dirname):
+                # Should it not be the whole target.package_root path?
+                for fname in os.listdir(target.package_root):
                     if is_pysource(fname):
                         self.print_import(fp, fname2modname(fname, ''))
 
